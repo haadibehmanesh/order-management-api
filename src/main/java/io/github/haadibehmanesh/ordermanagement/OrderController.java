@@ -11,7 +11,7 @@ import java.util.List;
 public class OrderController {
 
     @GetMapping
-    public List<String> getOrders() {
+    public List<Order> getOrders() {
         return List.of();
     }
 }
