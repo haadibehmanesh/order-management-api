@@ -28,4 +28,8 @@ public class OrderService {
     public List<Order> getOrders() {
         return List.copyOf(orders.values());
     }
+
+    public java.util.Optional<Order> getOrderById(UUID id) {
+        return java.util.Optional.ofNullable(orders.get(id));
+    }
 }

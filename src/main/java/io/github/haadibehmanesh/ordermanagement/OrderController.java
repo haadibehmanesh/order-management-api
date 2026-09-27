@@ -26,4 +26,13 @@ public class OrderController {
     public Order createOrder(@Valid @RequestBody CreateOrderRequest request) {
         return orderService.createOrder(request);
     }
+
+    @GetMapping("/{id}")
+    public org.springframework.http.ResponseEntity<Order> getOrderById(
+            @PathVariable java.util.UUID id
+    ) {
+        return org.springframework.http.ResponseEntity.of(
+                orderService.getOrderById(id)
+        );
+    }
 }

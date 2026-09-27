@@ -26,4 +26,17 @@ class OrderServiceTest {
         assertThat(order.status()).isEqualTo(OrderStatus.NEW);
         assertThat(service.getOrders()).containsExactly(order);
     }
+
+    @Test
+    void shouldFindCreatedOrderById() {
+        OrderService service = new OrderService();
+        Order created = service.createOrder(
+                new CreateOrderRequest(
+                        "Notebook", 2, new BigDecimal("12.50")
+                )
+        );
+
+        assertThat(service.getOrderById(created.id()))
+                .contains(created);
+    }
 }
